@@ -48,11 +48,15 @@ export default class Time extends React.Component {
     monthRef: PropTypes.object,
     timeCaption: PropTypes.string,
     injectTimes: PropTypes.array,
+    
     locale: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.shape({ locale: PropTypes.object })
     ]),
-    showTimeSelectOnly: PropTypes.bool
+    showTimeSelectOnly: PropTypes.bool,
+    /* 3vil custom */
+    startTime: PropTypes.instanceOf(Date),
+    minutesInDay: PropTypes.number
   };
 
   state = {
@@ -123,9 +127,9 @@ export default class Time extends React.Component {
     let times = [];
     const format = this.props.format ? this.props.format : "p";
     const intervals = this.props.intervals;
-
-    const base = getStartOfDay(newDate(this.props.selected));
-    const multiplier = 1440 / intervals;
+    /* 3vil custom */
+    const base = this.props.startTime ? this.props.startTime : getStartOfDay(newDate(this.props.selected));
+    const multiplier = this.props.minutesInDay ? this.props.minutesInDay : 1440 / intervals;
     const sortedInjectTimes =
       this.props.injectTimes &&
       this.props.injectTimes.sort(function(a, b) {

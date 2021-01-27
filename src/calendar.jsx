@@ -182,7 +182,10 @@ export default class Calendar extends React.Component {
     isInputFocused: PropTypes.bool,
     customTimeInput: PropTypes.element,
     weekAriaLabelPrefix: PropTypes.string,
-    setPreSelection: PropTypes.func
+    setPreSelection: PropTypes.func,
+    /* 3vil custom */
+    startTime: PropTypes.instanceOf(Date),
+    minutesInDay: PropTypes.number
   };
 
   constructor(props) {
@@ -884,6 +887,9 @@ export default class Calendar extends React.Component {
           injectTimes={this.props.injectTimes}
           locale={this.props.locale}
           showTimeSelectOnly={this.props.showTimeSelectOnly}
+          /* 3vil custom */
+          startTime={this.props.startTime}
+          minutesInDay={this.props.minutesInDay}
         />
       );
     }
