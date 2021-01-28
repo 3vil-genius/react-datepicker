@@ -129,7 +129,7 @@ export default class Time extends React.Component {
     const intervals = this.props.intervals;
     /* 3vil custom */
     const base = this.props.startTime ? this.props.startTime : getStartOfDay(newDate(this.props.selected));
-    const multiplier = this.props.minutesInDay ? this.props.minutesInDay : 1440 / intervals;
+    const multiplier = (this.props.minutesInDay ? this.props.minutesInDay : 1440) / intervals;
     const sortedInjectTimes =
       this.props.injectTimes &&
       this.props.injectTimes.sort(function(a, b) {
