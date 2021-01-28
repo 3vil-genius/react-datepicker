@@ -140,7 +140,8 @@ export default class Time extends React.Component {
       this.props.selected || this.props.openToDate || newDate();
     const currH = getHours(activeDate);
     const currM = getMinutes(activeDate);
-    const activeTime = setHours(setMinutes(base, currM), currH);
+    //const activeTime = setHours(setMinutes(base, currM), currH);
+    const activeTime = activeDate
 
     for (let i = 0; i < multiplier; i++) {
       const currentTime = addMinutes(base, i * intervals);

@@ -582,10 +582,7 @@ export default class DatePicker extends React.Component {
     const selected = this.props.selected
       ? this.props.selected
       : this.getPreSelection();
-    let changedDate = setTime(selected, {
-      hour: getHours(time),
-      minute: getMinutes(time)
-    });
+    let changedDate = time;
 
     this.setState({
       preSelection: changedDate
